@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 
 const editValidation = Yup.object({
-  courseName: Yup.string().min(2).validate('course name required'),
+  courseName: Yup.string().min(2).required('course name required'),
 });
 export function ShowCourseTr({
   deleteCourse,

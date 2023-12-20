@@ -24,11 +24,11 @@ const SignupSchema = Yup.object().shape({
   'add-course-name': Yup.string()
     .min(2)
     .max(25)
-    .validate('Course name is required'),
-  excelFile: Yup.mixed().validate('File is required'),
+    .required('Course name is required'),
+  excelFile: Yup.mixed().required('File is required'),
   'add-course-duration': Yup.number()
     .min(1, 'Course duration must be greater than or equal to 1')
-    .validate('Course duration is required'),
+    .required('Course duration is required'),
 });
 
 const InputFieldData = [

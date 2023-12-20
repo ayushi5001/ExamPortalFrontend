@@ -80,37 +80,38 @@ const initialvalue = {
 };
 
 const AssesstmentSettingVAlidation = yup.object().shape({
-  assessmentName: yup.string().validate('Assessment name is required*'),
-  shortDescription: yup.string()
-    .validate('Assessment short description is required*'),
-  assessmentPattern: yup.string().validate('Assessment pattern is required*'),
-  assessmentDuration: yup.string().validate('Assessment duration is required*'),
+  assessmentName: yup.string().required('Assessment name is required*'),
+  shortDescription: yup
+    .string()
+    .required('Assessment short description is required*'),
+  assessmentPattern: yup.string().required('Assessment pattern is required*'),
+  assessmentDuration: yup.string().required('Assessment duration is required*'),
   assessmentTotalMarks: yup
     .number()
     .typeError('Assessment total marks must be a number')
-    .validate('Assessment total marks is required*')
+    .required('Assessment total marks is required*')
     .positive('Assessment total marks must be a positive number'),
   assessmentMinmumMarks: yup
     .number()
     .typeError('Assessment minimum marks must be a number')
-    .validate('Assessment minimum marks is required*')
+    .required('Assessment minimum marks is required*')
     .positive('Assessment minimum marks must be a positive number'),
   assessmentResultConfig: yup
     .string()
-    .validate('Select any one this is required**'),
-  assessmentOrder: yup.string().validate('Select any one this is required**'),
-  //   assessmentInstruction: yup.string().validate('Assessment name is required*'),
+    .required('Select any one this is required**'),
+  assessmentOrder: yup.string().required('Select any one this is required**'),
+  //   assessmentInstruction: yup.string().required('Assessment name is required*'),
 });
 
 const QuestionManagementValidation = yup.object().shape({
   questions: yup.array().of(
     yup.object().shape({
-      questions: yup.string().validate('Question is required'),
+      questions: yup.string().required('Question is required'),
       options: yup
         .array()
         .min(2, 'At least two options are required')
-        .of(yup.string().validate('Option is required')),
-      correctAns: yup.string().validate('Correct answer is required'),
+        .of(yup.string().required('Option is required')),
+      correctAns: yup.string().required('Correct answer is required'),
     })
   ),
 });

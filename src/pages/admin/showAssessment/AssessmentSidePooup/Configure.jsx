@@ -80,9 +80,9 @@ export default function Configure({ ConfigureProps }) {
   ];
 
   const configureSchema = yup.object().shape({
-    examDuration: yup.string().validate('Please enter assessement duration'),
-    examBranch: yup.string().validate('Please enter branch name'),
-    examSession: yup.string().validate('Please enter session name'),
+    examDuration: yup.string().required('Please enter assessement duration'),
+    examBranch: yup.string().required('Please enter branch name'),
+    examSession: yup.string().required('Please enter session name'),
   });
   const branchOptions = [
     'bca',
