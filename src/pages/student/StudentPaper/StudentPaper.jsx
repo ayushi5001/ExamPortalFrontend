@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PiHandWaving } from 'react-icons/pi';
-import Countdown from 'react-countdown-now';
+// import Countdown from 'react-countdown-now';
 import { CustomButton } from '../../../theme/Button/Buttons';
 import { Button, Modal, Spinner } from 'react-bootstrap';
 import {
@@ -115,121 +115,7 @@ export default function StudentPaper({
           <Loader />
         </div>
       ) : (
-        <div className="row w-100 gap-4  p-3 ">
-          <>
-            <div className="col-lg-8  offset-lg-2 ">
-              <div className=" d-flex flex-wrap justify-content-between">
-                <div>
-                  <h1 className=" text-capitalize">
-                    {decodedData?.examDetails.assessmentName}
-                  </h1>
-                  <div className=" d-flex align-items-center px-3 fs-6">
-                    <span>
-                      {targetTime && (
-                        <Countdown
-                          // date={decodedData?.examDetails.examDuration} // Set the target time for the countdown
-                          date={targetTime}
-                          renderer={({
-                            hours,
-                            minutes,
-                            seconds,
-                            completed,
-                          }) => {
-                            if (completed) {
-                              return <span>Countdown expired</span>;
-                            } else {
-                              return (
-                                <span>
-                                  {hours.toString().padStart(2, '0')}:
-                                  {minutes.toString().padStart(2, '0')}:
-                                  {seconds.toString().padStart(2, '0')}
-                                </span>
-                              );
-                            }
-                          }}
-                        />
-                      )}
-                    </span>{' '}
-                    <div
-                      className=" mx-1 bg-dark-subtle rounded-5"
-                      style={{ width: '200px', height: '10px' }}
-                    >
-                      <div
-                        className=" rounded-5"
-                        style={{
-                          width: '0px',
-                          height: '10px',
-                          backgroundColor: 'blue',
-                        }}
-                        ref={progressBar}
-                      ></div>
-                    </div>{' '}
-                    <span>
-                      {count}/{decodedData?.questions?.length} question
-                    </span>
-                  </div>
-                </div>
-                <div className="d-none d-md-flex justify-content-center align-items-center flex-column">
-                  <h1>
-                    Hey {stdData?.email.split('@')[0]} 👋
-                    {/* <PiHandWaving size={35} /> */}
-                  </h1>
-                  <div className=" d-flex justify-content-center gap-5 fs-5 text-capitalize">
-                    {' '}
-                    <p>min score:{decodedData?.examDetails.minimum_marks}% </p>
-                    <p>max score:{decodedData?.examDetails.totalMarks} </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-lg-8  offset-lg-2 p-lg-4  overflow-auto  "
-              style={{ maxHeight: '60vh' }}
-            >
-              {decodedData?.questions &&
-                decodedData?.questions.map((value, index) => {
-                  return (
-                    <div className="p-1 py-3 p-lg-4 my-3  shadow border rounded-3">
-                      <div className="question d-flex fs-6">
-                        <span>{index + 1}.</span>
-                        <p>{value.questions.replaceAll('+', ' ')}?</p>
-                      </div>
-                      <ul className="options text-wrap  fs-6 list-unstyled">
-                        {value.options &&
-                          value?.options?.map((valueopt, indexopt) => {
-                            return (
-                              <li className=" d-flex gap-2">
-                                <input
-                                  type="radio"
-                                  name={`question${index}`}
-                                  value={valueopt}
-                                  onClick={(e) => {
-                                    handleChecked(e, index);
-                                  }}
-                                  id={`ques${index}-opt${indexopt}`}
-                                />
-                                <label for={`ques${index}-opt${indexopt + 1}`}>
-                                  {valueopt}
-                                </label>
-                              </li>
-                            );
-                          })}
-                      </ul>
-                    </div>
-                  );
-                })}
-            </div>
-            <div className="col-lg-8  offset-lg-2 ">
-              <div className=" d-flex w-100 justify-content-end p-0 m-0">
-                <CustomButton
-                  className={'rounded-4 px-1 px-md-5 m-0 m-md-3 mb-0 w-25 '}
-                  buttonText={'submit'}
-                  onButtonClick={handleSubmitShow}
-                />
-              </div>
-            </div>
-          </>
-        </div>
+       <p>hello</p>
       )}
       {showSubmit && (
         <Modal
