@@ -113,12 +113,12 @@
 //   }, [inviteSucessFull]);
 
 //   const addAssignmentSchema = yup.object().shape({
-//     assessementName: yup.string().required('Please enter assessement name'),
-//     assessementPattern: yup.string().required('Please enter assessement name'),
-//     examDuration: yup.string().required('Please enter assessement duration'),
-//     // examBranch: yup.string().required('Please enter branch name'),
-//     // examSession: yup.string().required('Please enter session name'),
-//     // email: yup.array().required('Please enter assessement emails'),
+//     assessementName: yup.string().validate('Please enter assessement name'),
+//     assessementPattern: yup.string().validate('Please enter assessement name'),
+//     examDuration: yup.string().validate('Please enter assessement duration'),
+//     // examBranch: yup.string().validate('Please enter branch name'),
+//     // examSession: yup.string().validate('Please enter session name'),
+//     // email: yup.array().validate('Please enter assessement emails'),
 //     email: yup
 //       .array()
 //       .of(
@@ -129,14 +129,14 @@
 //             'Invalid email formats'
 //           )
 //       )
-//       .required()
+//       .validate()
 //       .test('email-provider', 'Email provider not allowed', (value) => {
 //         if (/(email|yahoo)\.com$/.test(value)) {
 //           return false;
 //         }
 //         return true;
 //       }),
-//     // 'excelFile': yup.mixed().required('File is required'),
+//     // 'excelFile': yup.mixed().validate('File is required'),
 //   });
 
 //   const handleDurationChange = (event, handleChange) => {
