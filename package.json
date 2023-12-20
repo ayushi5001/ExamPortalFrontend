@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@amcharts/amcharts5": "^5.6.2",
+    "@amcharts/amcharts5": "^5.7.1",
     "@amcharts/amcharts5-geodata": "^5.1.2",
     "@auth0/auth0-react": "^2.2.1",
     "@ckeditor/ckeditor5-build-classic": "^40.2.0",
